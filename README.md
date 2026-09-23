@@ -10,12 +10,13 @@ git clone https://github.com/AnswerYas/stock-skill.git ~/.cursor/skills/stock-sk
 
 Codex 可放到 `~/.agents/skills/stock-skill`。技能入口是仓库根目录的 `SKILL.md`。
 
-趋势条件由脚本核对，不手算均线：
+趋势条件由脚本核对，不手算均线。热股对照同花顺和东方财富，再补新闻与微博热搜；雪球专栏需要另查网页：
 
 ```bash
+python3 scripts/hot.py --limit 20 --reasons 8
 python3 scripts/screen.py --pool 30
 python3 scripts/screen.py 600519
 python3 scripts/screen.py --name 贵州茅台
 ```
 
-脚本只使用 Python 标准库和公开行情接口。逻辑和业绩预期需要智能体另查公告或新闻，并带来源。筛选结果不是投资建议。
+脚本只使用 Python 标准库和公开接口。逻辑、业绩预期、雪球专栏和微博正文需要智能体另查来源。筛选结果不是投资建议。
